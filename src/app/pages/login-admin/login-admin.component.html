@@ -1,0 +1,41 @@
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+  <h2>{{ creandoAdmin ? 'Registro de administrador' : 'Inicio de sesión (Administrador)' }}</h2>
+
+  <label>Email:</label>
+  <input formControlName="email" type="email" placeholder="admin@email.com" />
+  <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid" class="error-text">
+    El correo es obligatorio y debe ser válido.
+  </div>
+
+<label>Contraseña:</label>
+<div class="input-contrasena">
+  <input
+    [type]="mostrar ? 'text' : 'password'"
+    formControlName="password"
+    placeholder="********"
+  />
+  <span class="toggle-text" (click)="mostrar = !mostrar">
+    {{ mostrar ? 'Ocultar' : 'Mostrar' }}
+  </span>
+</div>
+
+
+<div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid" class="error-text">
+  La contraseña es obligatoria.
+</div>
+
+
+  <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid" class="error-text">
+    La contraseña es obligatoria.
+  </div>
+
+  <button type="submit">
+    {{ creandoAdmin ? 'Registrar Administrador' : 'Entrar' }}
+  </button>
+
+  <a href="#" (click)="toggleModo(); $event.preventDefault()" style="display: block; margin-top: 10px;">
+    {{ creandoAdmin ? 'Ya tengo cuenta' : 'Crear nuevo administrador' }}
+  </a>
+
+  <div *ngIf="error" class="error-text" style="margin-top: 10px;">{{ error }}</div>
+</form>

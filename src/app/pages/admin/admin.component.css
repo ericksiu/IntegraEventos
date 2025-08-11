@@ -1,0 +1,204 @@
+/* Contenedor principal */
+form {
+  max-width: 550px;
+  margin: 40px auto;
+  padding: 10px 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #121212;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(30, 255, 0, 0.15);
+}
+
+/* Título principal */
+h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin: 20px 0 30px;
+  font-weight: bold;
+  color: #000000;
+  text-shadow: 0 0 10px rgba(94, 100, 94, 0.4);
+}
+
+/* Inputs y selects */
+input, select {
+  width: 90%;
+  padding: 12px 14px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  background-color: #ffffff;
+  color: #333;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, select:focus {
+  border-color: #1eff00;
+  box-shadow: 0 0 6px rgba(30, 255, 0, 0.4);
+  outline: none;
+}
+
+label {
+  font-weight: 600;
+  display: block;
+  color: #333;
+  margin-top: 10px;
+}
+
+.radio-option:hover {
+  border-color: #1eff00;
+  background-color: #ecfff1;
+}
+
+.radio-option input[type="radio"] {
+  margin-right: 8px;
+}
+
+/* Botones */
+button {
+  background: linear-gradient(90deg, #1eff00, #5eff00);
+  color: #121212;
+  font-weight: bold;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(1, 255, 33, 0.3);
+  margin-top: 15px;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #30d81a, #30d81a);
+  transform: scale(1.03);
+}
+
+/* Errores y mensajes */
+.error-text {
+  color: #cc0000;
+  font-size: 14px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched {
+  border-color: #cc0000;
+  background-color: #fff0f0;
+}
+
+div[ngif] {
+  max-width: 700px;
+  margin: 30px auto;
+  background: #e6ffed;
+  border: 1.5px solid #30d81a;
+  border-radius: 10px;
+  padding: 20px;
+  font-size: 16px;
+  color: #1a5e2c;
+  text-align: center;
+}
+
+/* Tablas */
+.table-container, .table-container1 {
+  width: 100%;
+  overflow-x: auto;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.table-container1 table {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  border: 1px solid #ccc;
+  white-space: nowrap;
+}
+
+thead {
+  background: #f4f4f4;
+}
+
+/* Paginación */
+.paginacion {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.paginacion button {
+  padding: 5px 10px;
+  font-weight: bold;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+  }
+
+  td {
+    position: relative;
+    padding-left: 50%;
+    text-align: left;
+  }
+
+  td::before {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 45%;
+    white-space: nowrap;
+    font-weight: bold;
+  }
+
+  /* Tabla de usuarios */
+  .table-container table td:nth-of-type(1)::before { content: "Nombre"; }
+  .table-container table td:nth-of-type(2)::before { content: "Género"; }
+  .table-container table td:nth-of-type(3)::before { content: "Talla"; }
+  .table-container table td:nth-of-type(4)::before { content: "Distancia"; }
+  .table-container table td:nth-of-type(5)::before { content: "Evento"; }
+  .table-container table td:nth-of-type(6)::before { content: "Orden"; }
+  .table-container table td:nth-of-type(7)::before { content: "Referencia"; }
+
+  /* Tabla de actividades */
+  .table-container1 table td:nth-of-type(1)::before { content: "ID"; }
+  .table-container1 table td:nth-of-type(2)::before { content: "Nombre del evento"; }
+  .table-container1 table td:nth-of-type(3)::before { content: "Costo"; }
+  .table-container1 table td:nth-of-type(4)::before { content: "Acciones"; }
+
+  input, select {
+    width: 100%;
+  }
+
+  .paginacion {
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -1,0 +1,167 @@
+<h1 class="titulo-principal">Inscripción a {{ evento | titlecase }}</h1>
+
+<form [formGroup]="formulario" (ngSubmit)="registrarUsuario()">
+  <!-- NOMBRE DEL EVENTO (solo lectura) -->
+  <label>Nombre del evento:</label>
+  <input formControlName="nombreEvento" readonly>
+
+  <!-- DISTANCIA -->
+  <label>Distancia:</label>
+  <select formControlName="distancia">
+    <option value="">Distancia de la Carrera</option>
+    <option value="5KM">5KM</option>
+    <option value="10KM">10KM</option>
+    <option value="15KM">15KM</option>
+    <option value="20KM">20KM</option>
+    <option value="25KM">25KM</option>
+  </select>
+  <div *ngIf="formulario.get('distancia')?.touched && formulario.get('distancia')?.invalid" class="error-text">
+    La distancia es obligatoria.
+  </div>
+
+  <!-- TALLA -->
+  <label>Talla:</label>
+  <select formControlName="talla">
+    <option value="">Talla del Jersey</option>
+    <option value="XCH">XCH</option>
+    <option value="CH">CH</option>
+    <option value="M">M</option>
+    <option value="G">G</option>
+    <option value="XG">XG</option>
+  </select>
+  <div *ngIf="formulario.get('talla')?.touched && formulario.get('talla')?.invalid" class="error-text">
+    La talla es obligatoria.
+  </div>
+
+  <!-- NOMBRE -->
+  <label>Nombre(s):</label>
+  <input formControlName="nombre">
+  <div *ngIf="formulario.get('nombre')?.touched && formulario.get('nombre')?.invalid" class="error-text">
+    El nombre es obligatorio.
+  </div>
+
+  <!-- APELLIDO -->
+  <label>Apellidos:</label>
+  <input formControlName="apellido">
+  <div *ngIf="formulario.get('apellido')?.touched && formulario.get('apellido')?.invalid" class="error-text">
+    El apellido es obligatorio.
+  </div>
+
+  <!-- NACIMIENTO -->
+  <label>Fecha de nacimiento:</label>
+  <input type="date" formControlName="nacimiento">
+  <div *ngIf="formulario.get('nacimiento')?.touched && formulario.get('nacimiento')?.invalid" class="error-text">
+    La fecha de nacimiento es obligatoria.
+  </div>
+
+  <!-- CURP -->
+  <label>CURP:</label>
+  <input formControlName="curp">
+  <div *ngIf="formulario.get('curp')?.touched && formulario.get('curp')?.invalid" class="error-text">
+    La CURP debe tener 18 caracteres.
+  </div>
+
+<!-- GÉNERO -->
+  <label>Género:</label>
+  <div class="genero-group">
+    <label class="radio-option">
+      <input type="radio" formControlName="genero" value="M"> Masculino
+    </label>
+    <label class="radio-option">
+      <input type="radio" formControlName="genero" value="F"> Femenino
+    </label>
+  </div>
+  <div *ngIf="formulario.get('genero')?.touched && formulario.get('genero')?.invalid" class="error-text">
+    Selecciona un género.
+  </div>
+
+
+  <!-- EMAIL -->
+  <label>Email:</label>
+  <input formControlName="email" type="email">
+  <div *ngIf="formulario.get('email')?.touched && formulario.get('email')?.invalid" class="error-text">
+    <div *ngIf="formulario.get('email')?.errors?.['required']">El correo es obligatorio.</div>
+    <div *ngIf="formulario.get('email')?.errors?.['email']">Formato de correo inválido.</div>
+  </div>
+
+  <!-- TELÉFONO -->
+  <label>Teléfono:</label>
+  <input formControlName="telefono" type="tel" pattern="[0-9]{10}" maxlength="10">
+  <div *ngIf="formulario.get('telefono')?.touched && formulario.get('telefono')?.invalid" class="error-text">
+    <div *ngIf="formulario.get('telefono')?.errors?.['required']">El teléfono es obligatorio.</div>
+    <div *ngIf="formulario.get('telefono')?.errors?.['pattern']">Solo números (10 dígitos).</div>
+  </div>
+  
+
+  <!-- TELÉFONO EMERGENCIA -->
+  <label>Teléfono de emergencia:</label>
+  <input formControlName="telEmergencia" type="tel" pattern="[0-9]{10}" maxlength="10">
+<div *ngIf="formulario.get('telEmergencia')?.touched && formulario.get('telEmergencia')?.invalid" class="error-text">
+  <div *ngIf="formulario.get('telEmergencia')?.errors?.['required']">El teléfono de emergencia es obligatorio.</div>
+  <div *ngIf="formulario.get('telEmergencia')?.errors?.['pattern']">Solo números (10 dígitos).</div>
+</div>
+
+
+  <!-- TIPO DE SANGRE -->
+  <label>Tipo de sangre:</label>
+  <select formControlName="tipoSangre">
+    <option value="">Selecciona</option>
+    <option value="A+">A+</option>
+    <option value="A-">A-</option>
+    <option value="B+">B+</option>
+    <option value="B-">B-</option>
+    <option value="AB+">AB+</option>
+    <option value="AB-">AB-</option>
+    <option value="O+">O+</option>
+    <option value="O-">O-</option>
+  </select>
+  <div *ngIf="formulario.get('tipoSangre')?.touched && formulario.get('tipoSangre')?.invalid" class="error-text">
+    El tipo de sangre es obligatorio.
+  </div>
+
+  <!-- DOMICILIO -->
+  <label>Domicilio:</label>
+  <input formControlName="domicilio">
+  <div *ngIf="formulario.get('domicilio')?.touched && formulario.get('domicilio')?.invalid" class="error-text">
+    El domicilio es obligatorio.
+  </div>
+
+  <!-- CIUDAD -->
+  <label>Ciudad:</label>
+  <input formControlName="ciudad">
+  <div *ngIf="formulario.get('ciudad')?.touched && formulario.get('ciudad')?.invalid" class="error-text">
+    La ciudad es obligatoria.
+  </div>
+
+  <!-- ESTADO -->
+  <label>Estado:</label>
+  <input formControlName="estado">
+  <div *ngIf="formulario.get('estado')?.touched && formulario.get('estado')?.invalid" class="error-text">
+    El estado es obligatorio.
+  </div>
+
+  <!-- EQUIPO -->
+  <label>Equipo:</label>
+  <input formControlName="equipo">
+  <div *ngIf="formulario.get('equipo')?.touched && formulario.get('equipo')?.invalid" class="error-text">
+    El nombre del equipo  es obligatorio.
+  </div>
+  <!-- COSTO (solo lectura) -->
+  <label>Costo:</label>
+  <input formControlName="costo" readonly>
+
+  <button type="submit">Registrar</button>
+</form>
+
+<!-- MENSAJE DE ÉXITO -->
+<div *ngIf="registroExitoso">
+  <h2>✅ Registro Exitoso</h2>
+  <p><strong>Nombre:</strong> {{ datos.nombre }} {{ datos.apellido }}</p>
+  <p><strong>Edad (aprox):</strong> {{ calcularEdad(datos.nacimiento) }}</p>
+  <p><strong>Género:</strong> {{ datos.genero }}</p>
+  <p><strong>Distancia:</strong> {{ datos.distancia }}</p>
+  <p><strong>Talla:</strong> {{ datos.talla }}</p>
+  <p><strong>Tipo de sangre:</strong> {{ datos.tipoSangre }}</p>
+  <p><strong>Número de orden:</strong> {{ datos.orden }}</p>
+  <p><strong>Referencia de pago:</strong> {{ datos.referencia }}</p>
+</div>

@@ -1,0 +1,165 @@
+/* Contenedor principal */
+form {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 10px 20px; /* un poco más de padding horizontal para móviles */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #121212;
+  box-sizing: border-box;
+}
+
+/* Título principal */
+.titulo-principal {
+  text-align: center;
+  font-size: 2.2rem;
+  margin: 20px 0 30px;
+  font-weight: bold;
+  color: #000000;
+  text-shadow: 0 0 10px rgba(94, 100, 94, 0.4);
+}
+
+/* Estilo general de inputs y selects */
+input, select {
+  width: 100%;
+  padding: 12px 14px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  background-color: #ffffff;
+  color: #333;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+input:focus, select:focus {
+  border-color: #1eff00;
+  box-shadow: 0 0 6px rgba(30, 255, 0, 0.4);
+  outline: none;
+}
+
+/* Etiquetas */
+label {
+  font-weight: 600;
+  display: block;
+  color: #333;
+  margin-top: 10px;
+}
+
+/* Grupo de género */
+.genero-group {
+  display: flex;
+  gap: 30px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  padding-left: 5px;
+  flex-wrap: wrap; /* Para que en móvil los radio botones no se corten */
+}
+
+/* Botón */
+button {
+  background: linear-gradient(90deg, #1eff00, #5eff00);
+  color: #121212;
+  font-weight: bold;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(1, 255, 33, 0.3);
+  transition: background 0.3s ease, transform 0.3s ease;
+  margin-top: 10px;
+  width: 100%; /* Botón full ancho en móvil */
+  max-width: 300px; /* Pero no demasiado ancho en escritorio */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #30d81a, #30d81a);
+  transform: scale(1.03);
+}
+
+/* Radios de género */
+.radio-option {
+  display: flex;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 8px 12px;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #333;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  user-select: none;
+}
+
+.radio-option:hover {
+  border-color: #1eff00;
+  background-color: #ecfff1;
+}
+
+.radio-option input[type="radio"] {
+  margin-right: 8px;
+}
+
+/* Estilo para errores */
+.error-text {
+  color: #cc0000;
+  font-size: 14px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched {
+  border-color: #cc0000;
+  background-color: #fff0f0;
+}
+
+/* Mensaje de éxito */
+div[ngif] {
+  max-width: 700px;
+  margin: 30px auto;
+  background: #e6ffed;
+  border: 1.5px solid #30d81a;
+  border-radius: 10px;
+  padding: 20px;
+  font-size: 16px;
+  color: #1a5e2c;
+  box-sizing: border-box;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .titulo-principal {
+    font-size: 2.2 rem;
+    margin: 15px 10px 25px;
+  }
+
+  form {
+    padding: 10px 15px;
+    margin: 20px 10px;
+  }
+
+  /* En móviles, el grupo de género se apila vertical */
+  .genero-group {
+    gap: 10px;
+  }
+
+  /* Reduce padding de inputs para móviles */
+  input, select {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  /* Botón más grande, full ancho */
+  button {
+    max-width: 100%;
+    padding: 14px;
+    font-size: 18px;
+  }
+}
