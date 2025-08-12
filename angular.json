@@ -21,11 +21,11 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/proyecto-estadias",
             "index": "src/index.html",
-            "browser": "src/main.ts",
+            "main": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -66,10 +66,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "proyectoEstadias:build:production"
+              "browserTarget": "proyectoEstadias:build:production"
             },
             "development": {
-              "buildTarget": "proyectoEstadias:build:development"
+              "browserTarget": "proyectoEstadias:build:development"
             }
           },
           "defaultConfiguration": "development"
