@@ -1,40 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Firestore, collection, getDocs } from '@angular/fire/firestore';
 
 @Component({
-  standalone: false,
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
+  standalone: false,
   styleUrls: ['./inicio.component.css']
 })
-export class InicioComponent {
+export class InicioComponent implements OnInit {
   imagenActual = 0;
+  imagenes: any[] = [];
+  cargando = true;
 
-  imagenes = [
-  {
-    url: 'assets/img/ciclismo.jpg',
-    alt: 'Ciclismo de montaña',
-    title: '¡Únete a la aventura del ciclismo!',
-    title2: 'Ciclismo',
-    subtitle: 'Regístrate y participa en eventos únicos al aire libre.',
-    evento: 'ciclismo'
-  },
-  {
-    url: 'assets/img/senderismo.jpg',
-    alt: 'Senderismo en la montaña',
-    title: 'Explora la naturaleza con senderismo',
-    title2: 'Senderismo',
-    subtitle: 'Eventos diseñados para todos los niveles y edades.',
-    evento: 'senderismo'
-  },
-  {
-    url: 'assets/img/kayaks.jpg',
-    alt: 'Kayak en río',
-    title: 'Desafía los ríos en kayak',
-    title2: 'Kayaks',
-    subtitle: 'Vive la emoción y naturaleza en Umécuaro.',
-    evento: 'kayaks'
+  get imagenActualObj() {
+    return this.imagenes[this.imagenActual];
   }
-];
+
+  constructor(private firestore: Firestore) {}
+
+  async ngOnInit() {
+    const ref = collection(this.firestore, 'configuracion');
+    const snapshot = await getDocs(ref);
+
+    this.imagenes = snapshot.docs.map(doc => ({
+      ...doc.data(),
+      evento: doc.id
+    }));
+
+    this.cargando = false;
+  }
 
   siguiente() {
     this.imagenActual = (this.imagenActual + 1) % this.imagenes.length;

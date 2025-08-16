@@ -10,6 +10,7 @@
         <th>Evento</th>
         <th>Orden</th>
         <th>Referencia</th>
+        <th>Eliminar Usuario</th>
       </tr>
     </thead>
     <tbody>
@@ -21,6 +22,7 @@
         <td>{{ user.nombreEvento }}</td>
         <td>{{ user.orden }}</td>
         <td>{{ user.referencia }}</td>
+        <td><button (click)="eliminarUsuario(user)">Eliminar</button></td>
       </tr>
     </tbody>
   </table>
@@ -38,25 +40,68 @@
 <div class="table-container1">
   <table *ngIf="actividades.length > 0">
     <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nombre del evento</th>
-        <th>Costo</th>
-        <th>Acciones</th>
-      </tr>
+       <tr>
+      <th>Nombre del evento</th>
+      <th>Titulo</th>
+      <th>Subtitulo</th>
+      <th>Costo</th>
+      <th>Imagen</th>
+      <th>Acciones</th>
+    </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let actividad of actividades">
-        <td>{{ actividad.id }}</td>
-        <td><input [(ngModel)]="actividad.nombreEvento" /></td>
-        <td><input type="number" [(ngModel)]="actividad.costo" /></td>
-        <td>
-          <button (click)="guardarCambios(actividad)">Guardar</button>
-        </td>
-      </tr>
+    <tr *ngFor="let actividad of actividades">
+      <td><input [(ngModel)]="actividad.nombreEvento" /></td>
+      <td><input [(ngModel)]="actividad.title" /></td>
+      <td><input [(ngModel)]="actividad.subtitle" /></td>
+      <td><input type="number" [(ngModel)]="actividad.costo" /></td>
+      <td>
+        <img *ngIf="actividad.url" [src]="actividad.url" width="80" />
+        <input [(ngModel)]="actividad.url" />
+
+      </td>
+  <td>
+  <button (click)="guardarCambios(actividad)">Guardar</button>
+  <button (click)="eliminarEvento(actividad)">Eliminar</button>
+</td>
+
+    </tr>
+
     </tbody>
   </table>
 </div>
+
+<hr/>
+<h2>Agregar nuevo evento</h2>
+<form [formGroup]="configForm" (ngSubmit)="agregarEvento()" novalidate>
+  <input formControlName="nombreEvento" placeholder="Nombre del evento" />
+  <input formControlName="title" placeholder="Título grande del carrusel" />
+  <input formControlName="subtitle" placeholder="Subtítulo del carrusel" />
+  <input formControlName="costo" type="number" placeholder="Costo" />
+  <input formControlName="url" placeholder="URL de la imagen" />
+
+  <button type="submit">Agregar</button>
+</form>
+
+
+<hr />
+<h2>Agregar nuevo administrador</h2>
+
+<form [formGroup]="nuevoAdminForm" (ngSubmit)="crearAdmin()">
+  <input formControlName="email" type="email" placeholder="Correo del administrador" />
+  
+<div class="input-contra">
+  <input [type]="mostrando ? 'text' : 'password'" formControlName="password" placeholder="Contraseña" />
+  <span class="toggle-text" (click)="toggleMostrar()">{{ mostrarTexto }}</span>
+</div>
+
+  <button type="submit">Crear administrador</button>
+
+  <div *ngIf="errorAdmin" class="error-text">{{ errorAdmin }}</div>
+  <div *ngIf="successAdmin" class="success-text">{{ successAdmin }}</div>
+</form>
+
+
 
 <p>Usuarios cargados: {{ usuarios.length }}</p>
 <p>Actividades cargadas: {{ actividades.length }}</p>

@@ -2,7 +2,7 @@
 form {
   max-width: 550px;
   margin: 30px auto;
-  padding: 10px 20px;
+  padding: 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #121212;
   background-color: #fff;
@@ -11,18 +11,27 @@ form {
   box-sizing: border-box;
 }
 
-/* Estilo general de inputs y selects */
+/* Título principal */
+h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin: 20px 0 30px;
+  font-weight: bold;
+  color: #000;
+  text-shadow: 0 0 10px rgba(94, 100, 94, 0.4);
+}
+
+/* Inputs y selects */
 input, select {
   width: 90%;
   padding: 12px 14px;
-  margin-top: 5px;
-  margin-bottom: 15px;
+  margin: 5px 0 15px;
   border: 2px solid #ccc;
   border-radius: 6px;
   font-size: 16px;
-  background-color: #ffffff;
+  background-color: #fff;
   color: #333;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: border-color 0.3s, box-shadow 0.3s;
   box-sizing: border-box;
 }
 
@@ -32,17 +41,15 @@ input:focus, select:focus {
   outline: none;
 }
 
-/* Contenedor para contraseña con toggle */
-.input-contrasena {
+/* Contenedor contraseña con toggle */
+.input-contra {
   position: relative;
   width: 90%;
-  margin-top: 5px;
-  margin-bottom: 15px;
+  margin: 5px 0 15px;
   box-sizing: border-box;
 }
 
-/* Input dentro de contraseña */
-.input-contrasena input {
+.input-contra input {
   width: 100%;
   padding-right: 60px;
   font-size: 16px;
@@ -50,8 +57,8 @@ input:focus, select:focus {
   border-radius: 6px;
   background-color: #fff;
   color: #333;
+  transition: border-color 0.3s, box-shadow 0.3s;
   box-sizing: border-box;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Texto Mostrar/Ocultar */
@@ -73,31 +80,28 @@ input:focus, select:focus {
 
 /* Etiquetas */
 label {
-  font-weight: 600;
   display: block;
+  font-weight: 600;
   color: #333;
-  margin-bottom: 6px;
-  margin-top: 10px;
+  margin: 10px 0 6px;
 }
 
 /* Botón */
 button {
-  background: linear-gradient(90deg, #1eff00, #5eff00);
-  color: #121212;
-  font-weight: bold;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 30px;
-  font-size: 16px;
-  cursor: pointer;
-  box-shadow: 0 5px 15px rgba(1, 255, 33, 0.3);
-  margin-top: 10px;
   width: 90%;
   max-width: 320px;
+  padding: 12px 24px;
+  margin: 10px auto 0;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: bold;
+  color: #121212;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(1, 255, 33, 0.3);
+  background: linear-gradient(90deg, #1eff00, #5eff00);
+  transition: background 0.3s, transform 0.3s;
 }
 
 button:hover {
@@ -107,15 +111,14 @@ button:hover {
 
 /* Enlaces */
 a {
-  padding: 10px 0;
   display: block;
   text-align: center;
   margin-top: 15px;
   font-size: 14px;
+  font-weight: 600;
   color: #3a7e32;
   cursor: pointer;
   text-decoration: none;
-  font-weight: 600;
 }
 
 a:hover {
@@ -128,34 +131,24 @@ a:hover {
   font-size: 14px;
   text-align: center;
   font-weight: 600;
-  margin-top: -10px;
-  margin-bottom: 10px;
+  margin: -10px 0 10px;
 }
 
+/* Inputs inválidos */
 input.ng-invalid.ng-touched,
 select.ng-invalid.ng-touched {
   border-color: #cc0000;
   background-color: #fff0f0;
 }
 
-/* Título principal */
-h2 {
-  text-align: center;
-  font-size: 2.2rem;
-  margin: 20px 0 30px;
-  font-weight: bold;
-  color: #000000;
-  text-shadow: 0 0 10px rgba(94, 100, 94, 0.4);
-}
-
 /* --- Responsive --- */
 @media (max-width: 768px) {
   form {
-    padding: 10px 15px;
+    padding: 15px;
     margin: 20px 10px;
   }
 
-  input, select, .input-contrasena {
+  input, select, .input-contra {
     width: 100%;
   }
 

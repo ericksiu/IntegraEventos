@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-menu',
   standalone: false,
   templateUrl: './menu.component.html',
-  styleUrl: './menu.component.css'
+  styleUrls: ['./menu.component.css']
 })
 export class MenuComponent {
 rutas=[

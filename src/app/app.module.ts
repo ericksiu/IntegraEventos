@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { FormularioComponent } from './pages/formulario/formulario.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { provideStorage, getStorage } from '@angular/fire/storage';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
@@ -32,7 +32,8 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideFirestore(() => getFirestore()),
-    provideAuth(() => getAuth())
+    provideAuth(() => getAuth()),
+    provideStorage(() => getStorage()),
   ],
   providers: [],
   bootstrap: [AppComponent]

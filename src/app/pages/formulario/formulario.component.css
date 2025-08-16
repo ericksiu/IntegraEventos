@@ -129,12 +129,61 @@ div[ngif] {
   border-radius: 10px;
   padding: 20px;
   font-size: 16px;
-  color: #1a5e2c;
+  color: #000000;
   box-sizing: border-box;
 }
+/* Contenedor del mensaje de éxito */
+.registro-exitoso {
+  max-width: 700px;
+  margin: 30px auto;
+  background: #ffffff; 
+  border: 1.5px solid #30d81a;
+  border-radius: 12px;
+  padding: 25px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #000000;
+  box-shadow: 0 4px 10px rgba(30, 255, 0, 0.15);
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Título dentro del mensaje */
+.registro-exitoso h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-shadow: 0 0 6px rgba(94, 100, 94, 0.2);
+}
+
+/* Texto de los datos */
+.registro-exitoso p {
+  margin: 8px 0;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+
+/* Animación de aparición */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 
 /* --- Responsive --- */
 @media (max-width: 768px) {
+   .registro-exitoso {
+    padding: 18px;
+    margin: 20px 10px;
+  }
+
+  .registro-exitoso h2 {
+    font-size: 1.5rem;
+  }
+
+  .registro-exitoso p {
+    font-size: 15px;
+  }
   .titulo-principal {
     font-size: 2.2 rem;
     margin: 15px 10px 25px;
@@ -144,19 +193,16 @@ div[ngif] {
     padding: 10px 15px;
     margin: 20px 10px;
   }
-
-  /* En móviles, el grupo de género se apila vertical */
   .genero-group {
     gap: 10px;
   }
 
-  /* Reduce padding de inputs para móviles */
+  
   input, select {
     padding: 10px 12px;
     font-size: 14px;
   }
 
-  /* Botón más grande, full ancho */
   button {
     max-width: 100%;
     padding: 14px;

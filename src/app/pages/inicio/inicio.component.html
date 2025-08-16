@@ -1,17 +1,21 @@
-<section class="full-carousel">
-  <div class="slide" *ngFor="let imagen of imagenes; let i = index" [class.active]="i === imagenActual">
-    <img [src]="imagen.url" [alt]="imagen.alt" />
+<section class="full-carousel" *ngIf="!cargando && imagenes.length > 0">
+  <div class="slide active">
+    <img [src]="imagenActualObj.url" [alt]="imagenActualObj.nombreEvento" />
 
     <div class="overlay"></div>
-    <div class="slide-content" [@fadeIn]>
-      <h1>{{ imagen.title }}</h1>
-      <p>{{ imagen.subtitle }}</p>
-      <a [routerLink]="['/formulario', imagen.evento]" class="btn-cta">
-        Inscribirme a {{ imagen.title2 }}
+
+    <div class="slide-content">
+      <h1>{{ imagenActualObj.title }}</h1>
+      <p>{{ imagenActualObj.subtitle }}</p>
+      <a [routerLink]="['/formulario', imagenActualObj.evento]" class="btn-cta">
+        Inscribirme a {{ imagenActualObj.nombreEvento }}
       </a>
+      <img [src]="imagenActualObj.imagen" *ngIf="imagenActualObj.imagen" />
     </div>
   </div>
 
   <button class="prev" (click)="anterior()">‹</button>
   <button class="next" (click)="siguiente()">›</button>
 </section>
+
+<div *ngIf="cargando" class="loading">Cargando...</div>

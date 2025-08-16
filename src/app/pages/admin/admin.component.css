@@ -1,35 +1,33 @@
-/* Contenedor principal */
+/* Contenedor principal del formulario */
 form {
   max-width: 550px;
   margin: 40px auto;
-  padding: 10px 0;
+  padding: 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #121212;
   background-color: #fff;
   border-radius: 16px;
   box-shadow: 0 6px 18px rgba(30, 255, 0, 0.15);
 }
 
-/* Título principal */
+/* Títulos */
 h2 {
   text-align: center;
-  font-size: 2.2rem;
+  font-size: 2rem;
   margin: 20px 0 30px;
   font-weight: bold;
-  color: #000000;
-  text-shadow: 0 0 10px rgba(94, 100, 94, 0.4);
+  color: #000;
+  text-shadow: 0 0 6px rgba(94, 100, 94, 0.4);
 }
 
 /* Inputs y selects */
 input, select {
   width: 90%;
-  padding: 12px 14px;
-  margin-top: 5px;
-  margin-bottom: 15px;
+  padding: 10px 12px;
+  margin: 5px 0 15px 0;
   border: 2px solid #ccc;
   border-radius: 6px;
   font-size: 16px;
-  background-color: #ffffff;
+  background-color: #fff;
   color: #333;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -40,94 +38,72 @@ input:focus, select:focus {
   outline: none;
 }
 
-label {
-  font-weight: 600;
-  display: block;
-  color: #333;
-  margin-top: 10px;
-}
-
-.radio-option:hover {
-  border-color: #1eff00;
-  background-color: #ecfff1;
-}
-
-.radio-option input[type="radio"] {
-  margin-right: 8px;
-}
-
-/* Botones */
+/* Botones generales */
 button {
   background: linear-gradient(90deg, #1eff00, #5eff00);
   color: #121212;
   font-weight: bold;
-  padding: 12px 24px;
+  padding: 10px 20px;
   border: none;
   border-radius: 20px;
-  font-size: 16px;
+  font-size: 14px;
   cursor: pointer;
-  box-shadow: 0 5px 15px rgba(1, 255, 33, 0.3);
-  margin-top: 15px;
+  box-shadow: 0 5px 12px rgba(1, 255, 33, 0.3);
+  margin: 5px 2px;
+  transition: transform 0.2s ease;
 }
 
 button:hover {
-  background: linear-gradient(90deg, #30d81a, #30d81a);
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
-/* Errores y mensajes */
-.error-text {
-  color: #cc0000;
-  font-size: 14px;
-  margin-top: -10px;
-  margin-bottom: 10px;
-}
-
-input.ng-invalid.ng-touched,
-select.ng-invalid.ng-touched {
-  border-color: #cc0000;
-  background-color: #fff0f0;
-}
-
-div[ngif] {
-  max-width: 700px;
-  margin: 30px auto;
-  background: #e6ffed;
-  border: 1.5px solid #30d81a;
-  border-radius: 10px;
-  padding: 20px;
-  font-size: 16px;
-  color: #1a5e2c;
-  text-align: center;
-}
-
-/* Tablas */
+/* Contenedor de tablas */
 .table-container, .table-container1 {
   width: 100%;
   overflow-x: auto;
   padding: 0 10px;
+  margin-bottom: 30px;
   box-sizing: border-box;
 }
 
-.table-container1 table {
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
-}
-
+/* Tablas */
 table {
   width: 100%;
   border-collapse: collapse;
+  table-layout: auto;
+  font-size: 14px;
 }
 
 th, td {
-  padding: 8px;
+  padding: 10px;
   border: 1px solid #ccc;
-  white-space: nowrap;
+  vertical-align: middle;
+  text-align: center;
+  word-break: break-word;
 }
 
 thead {
   background: #f4f4f4;
+  font-weight: bold;
+}
+
+/* Inputs dentro de celdas */
+td input[type="text"], 
+td input[type="number"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 6px 8px;
+  font-size: 14px;
+}
+
+/* Imagen dentro de celdas */
+td img {
+  display: block;
+  max-width: 100px;
+  height: auto;
+  margin: 5px auto;
+  border-radius: 6px;
+  border: 1px solid #ddd;
 }
 
 /* Paginación */
@@ -141,11 +117,165 @@ thead {
 }
 
 .paginacion button {
-  padding: 5px 10px;
+  padding: 5px 12px;
   font-weight: bold;
+  font-size: 13px;
 }
 
-/* Responsive para móviles */
+/* Hover en filas */
+tbody tr:hover {
+  background-color: #f0fff0;
+}
+
+/* -------------------- FORMULARIO NUEVO ADMIN -------------------- */
+form.nuevo-admin {
+  max-width: 550px;
+  margin: 30px auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #121212;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(30, 255, 0, 0.15);
+  box-sizing: border-box;
+}
+
+/* Inputs */
+form.nuevo-admin input, form.nuevo-admin select {
+  width: 90%;
+  padding: 12px 14px;
+  margin: 5px 0 15px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  background-color: #fff;
+  color: #333;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  box-sizing: border-box;
+}
+
+form.nuevo-admin input:focus, form.nuevo-admin select:focus {
+  border-color: #1eff00;
+  box-shadow: 0 0 6px rgba(30, 255, 0, 0.4);
+  outline: none;
+}
+
+/* Contenedor de contraseña */
+.input-contra {
+  display: flex;
+  flex-direction: column; 
+  width: 95%;             
+  margin: 5px 0 15px;
+  box-sizing: border-box;
+}
+
+/* Input de contraseña */
+.input-contra input {
+  width: 100%; 
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #333;
+  box-sizing: border-box;
+}
+
+
+
+/* Toggle Mostrar/Ocultar debajo del input */
+.toggle-text {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #3a7e32;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 600;
+}
+
+.toggle-text:hover {
+  text-decoration: underline;
+}
+
+/* Botón */
+form.nuevo-admin button {
+  width: 90%;
+  max-width: 320px;
+  padding: 12px 24px;
+  margin: 10px auto 0;
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  color: #121212;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(1, 255, 33, 0.3);
+  background: linear-gradient(90deg, #1eff00, #5eff00);
+  transition: background 0.3s, transform 0.3s;
+}
+
+form.nuevo-admin button:hover {
+  background: linear-gradient(90deg, #30d81a, #30d81a);
+  transform: scale(1.03);
+}
+
+/* Enlaces */
+form.nuevo-admin a {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #3a7e32;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+form.nuevo-admin a:hover {
+  text-decoration: underline;
+}
+
+/* Errores */
+form.nuevo-admin .error-text {
+  color: #cc0000;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 600;
+  margin: -10px 0 10px;
+}
+
+/* Inputs inválidos */
+form.nuevo-admin input.ng-invalid.ng-touched,
+form.nuevo-admin select.ng-invalid.ng-touched {
+  border-color: #cc0000;
+  background-color: #fff0f0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  form.nuevo-admin {
+    padding: 15px;
+    margin: 20px 10px;
+  }
+
+  form.nuevo-admin input, form.nuevo-admin select, .input-contra {
+    width: 100%;
+  }
+
+  form.nuevo-admin button {
+    width: 100%;
+    max-width: 100%;
+    padding: 14px;
+    font-size: 18px;
+  }
+
+  form.nuevo-admin .toggle-text {
+    font-size: 13px;
+  }
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   table, thead, tbody, th, td, tr {
     display: block;
@@ -156,10 +286,10 @@ thead {
   }
 
   tr {
-    margin-bottom: 15px;
+    margin-bottom: 40px;
+    padding: 28px;
     border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 10px;
+    border-radius: 8px;
     background-color: #f9f9f9;
   }
 
@@ -171,14 +301,14 @@ thead {
 
   td::before {
     position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 45%;
+    top: 20px;
+    left: 20px;
+    width: 40%;
     white-space: nowrap;
     font-weight: bold;
   }
 
-  /* Tabla de usuarios */
+  /* Usuarios */
   .table-container table td:nth-of-type(1)::before { content: "Nombre"; }
   .table-container table td:nth-of-type(2)::before { content: "Género"; }
   .table-container table td:nth-of-type(3)::before { content: "Talla"; }
@@ -187,18 +317,16 @@ thead {
   .table-container table td:nth-of-type(6)::before { content: "Orden"; }
   .table-container table td:nth-of-type(7)::before { content: "Referencia"; }
 
-  /* Tabla de actividades */
+  /* Actividades */
   .table-container1 table td:nth-of-type(1)::before { content: "ID"; }
-  .table-container1 table td:nth-of-type(2)::before { content: "Nombre del evento"; }
-  .table-container1 table td:nth-of-type(3)::before { content: "Costo"; }
-  .table-container1 table td:nth-of-type(4)::before { content: "Acciones"; }
+  .table-container1 table td:nth-of-type(2)::before { content: "Nombre"; }
+  .table-container1 table td:nth-of-type(3)::before { content: "Título"; }
+  .table-container1 table td:nth-of-type(4)::before { content: "Subtítulo"; }
+  .table-container1 table td:nth-of-type(5)::before { content: "Costo"; }
+  .table-container1 table td:nth-of-type(6)::before { content: "Imagen"; }
+  .table-container1 table td:nth-of-type(7)::before { content: "Acciones"; }
 
   input, select {
-    width: 100%;
-  }
-
-  .paginacion {
-    flex-direction: column;
-    align-items: center;
+    width: 90%;
   }
 }

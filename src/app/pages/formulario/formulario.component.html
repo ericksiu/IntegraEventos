@@ -1,9 +1,16 @@
-<h1 class="titulo-principal">Inscripción a {{ evento | titlecase }}</h1>
+<h1 class="titulo-principal">Inscripción a {{ formulario.get('nombreEvento')?.value | titlecase }}</h1>
 
 <form [formGroup]="formulario" (ngSubmit)="registrarUsuario()">
-  <!-- NOMBRE DEL EVENTO (solo lectura) -->
+  <!-- NOMBRE DEL EVENTO -->
   <label>Nombre del evento:</label>
-  <input formControlName="nombreEvento" readonly>
+  <select formControlName="nombreEvento">
+    <option value="">Selecciona un evento</option>
+    <option *ngFor="let ev of listaEventos" [value]="ev.nombreEvento.toLowerCase()">{{ ev.nombreEvento }}</option>
+  </select>
+
+  <div *ngIf="formulario.get('nombreEvento')?.touched && formulario.get('nombreEvento')?.invalid" class="error-text">
+    Por favor selecciona un evento.
+  </div>
 
   <!-- DISTANCIA -->
   <label>Distancia:</label>
@@ -154,8 +161,8 @@
 </form>
 
 <!-- MENSAJE DE ÉXITO -->
-<div *ngIf="registroExitoso">
-  <h2>✅ Registro Exitoso</h2>
+<div *ngIf="registroExitoso" class="registro-exitoso">
+  <h2>Registro Exitoso</h2>
   <p><strong>Nombre:</strong> {{ datos.nombre }} {{ datos.apellido }}</p>
   <p><strong>Edad (aprox):</strong> {{ calcularEdad(datos.nacimiento) }}</p>
   <p><strong>Género:</strong> {{ datos.genero }}</p>
